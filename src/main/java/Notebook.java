@@ -1,15 +1,11 @@
-import java.util.HashSet;
-import java.util.Set;
-
-public class Notebook {
+public class Notebook extends Goods {
     protected int ram;
     protected int hdd;
-    protected String color;
 
-    public Notebook(int ram, int hdd, String color) {
+    public Notebook(String name, String color,int price, int ram, int hdd) {
+        super(name, color, price);
         this.ram = ram;
         this.hdd = hdd;
-        this.color = color;
     }
 
     public int GetRam() {
@@ -20,11 +16,10 @@ public class Notebook {
         return hdd;
     }
 
-    public String GetColor() {
-        return color;
-    }
 
-    public String displayInfo() {
-        return String.format("Оперативная память: %d\nОбъем ЖД: %d\nЦвет: %s", ram, hdd, color);
+    @Override
+    public String displayInfo(){
+        return String.format("Ноутбук: %s; Цвет: %s; Цена: %d руб.; ОЗУ: %d GB; Диск: %d GB.",
+                name, color, price, ram, hdd);
     }
 }
